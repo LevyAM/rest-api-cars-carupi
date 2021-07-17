@@ -1,10 +1,10 @@
-import { model } from "mongoose";
+import { Model, model, Schema } from "mongoose";
 import { ICarDTO } from "../../../dtos/ICarDTO";
-import { CarSchema } from "../../mongoose/Car";
+import { carSchema } from "../../mongoose/Car";
 import { ICarsRepository } from "../ICarRepository";
 
 class CarsRepository implements ICarsRepository {
-  private repository = model<ICarDTO>("Car", CarSchema);
+  private repository = model<ICarDTO>("Car", carSchema);
 
   async create({
     brand,
@@ -14,7 +14,7 @@ class CarsRepository implements ICarsRepository {
     mileage,
     transmission,
     price,
-  }: ICarDTO): Promise<ICarDTO> {
+  }: ICarDTO): Promise<Model<Schema> | ICarDTO> {
     const car = await this.repository.create({
       brand,
       model,

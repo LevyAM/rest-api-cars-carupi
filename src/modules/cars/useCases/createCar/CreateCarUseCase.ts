@@ -1,3 +1,4 @@
+import { Model, Schema } from "mongoose";
 import { ICarDTO } from "../../dtos/ICarDTO";
 import { ICarsRepository } from "../../infra/repositories/ICarRepository";
 
@@ -12,7 +13,7 @@ class CreateCarUseCase {
     mileage,
     transmission,
     price,
-  }: ICarDTO): Promise<ICarDTO> {
+  }: ICarDTO): Promise<Model<Schema> | ICarDTO> {
     const car = await this.carRepository.create({
       brand,
       model,

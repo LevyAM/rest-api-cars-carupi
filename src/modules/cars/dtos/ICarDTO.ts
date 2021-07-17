@@ -2,7 +2,7 @@ interface ICarDTO {
   brand: string;
   model: string;
   version: string;
-  year: Date;
+  year: number;
   mileage: number;
   transmission: string;
   price: string;
