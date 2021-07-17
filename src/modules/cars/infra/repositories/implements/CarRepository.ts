@@ -1,4 +1,4 @@
-import { Model, model, Schema } from "mongoose";
+import { Document, Model, model, Schema } from "mongoose";
 import { ICarDTO } from "../../../dtos/ICarDTO";
 import { carSchema } from "../../mongoose/Car";
 import { ICarsRepository } from "../ICarRepository";
@@ -26,6 +26,11 @@ class CarsRepository implements ICarsRepository {
     });
 
     return car;
+  }
+
+  async list(): Promise<Model<Schema>[] | ICarDTO[]> {
+    const cars = await this.repository.find();
+    return cars;
   }
 }
 

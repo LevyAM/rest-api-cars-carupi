@@ -1,4 +1,4 @@
-import { Model, Schema } from "mongoose";
+import { Model, Schema, Document } from "mongoose";
 import { ICarDTO } from "../../dtos/ICarDTO";
 
 interface ICarsRepository {
@@ -11,6 +11,7 @@ interface ICarsRepository {
     transmission,
     price,
   }: ICarDTO): Promise<Model<Schema> | ICarDTO>;
+  list(): Promise<Model<Schema>[] | ICarDTO[]>;
 }
 
 export { ICarsRepository };

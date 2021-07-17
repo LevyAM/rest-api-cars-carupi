@@ -1,12 +1,11 @@
-import { model, Schema, Model } from "mongoose";
+import { model, Schema, Model, Document } from "mongoose";
 import { ICarDTO } from "../../dtos/ICarDTO";
 import { carSchema, carModel } from "../../infra/mongoose/Car";
 import { ICarsRepository } from "../../infra/repositories/ICarRepository";
 
 class CarsRepositoryInMemory implements ICarsRepository {
-  // cars: Model<Schema>[] = [];
   cars: ICarDTO[] = [];
-  // cars: carModel = model<ICarDTO>("Car", carSchema);
+
   async create({
     brand,
     model,
@@ -29,6 +28,10 @@ class CarsRepositoryInMemory implements ICarsRepository {
     this.cars.push(car);
 
     return car;
+  }
+
+  async list(): Promise<Model<Schema>[] | ICarDTO[]> {
+    return this.cars;
   }
 }
 export { CarsRepositoryInMemory };
