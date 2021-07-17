@@ -1,6 +1,6 @@
 import { connect } from "mongoose";
 
-const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@mongo-db-api-cars-carup.mk9is.mongodb.net/db-carupi-cars?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@carupi-cars.zbvzl.mongodb.net/test?retryWrites=true&w=majority`;
 
 const Connection = () =>
   connect(uri, {

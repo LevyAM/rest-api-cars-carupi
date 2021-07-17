@@ -1,5 +1,10 @@
 import { Router } from "express";
+import { CreateCarController } from "../../../../modules/cars/useCases/createCar/CreateCarController";
 
-const carRoutes = Router();
+const carsRoutes = Router();
 
-export { carRoutes };
+const createCarController = new CreateCarController();
+
+carsRoutes.post("/", createCarController.handle);
+
+export { carsRoutes };
