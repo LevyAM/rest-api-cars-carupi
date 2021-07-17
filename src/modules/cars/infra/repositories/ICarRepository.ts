@@ -3,6 +3,7 @@ import { ICarDTO } from "../../dtos/ICarDTO";
 
 interface ICarsRepository {
   create({
+    car_id,
     brand,
     model,
     version,

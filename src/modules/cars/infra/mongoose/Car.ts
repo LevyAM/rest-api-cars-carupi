@@ -1,6 +1,7 @@
 import { model, Schema } from "mongoose";
 
 const carSchema = new Schema({
+  car_id: { type: String, unique: true },
   brand: { type: String, required: true },
   model: { type: String, required: true },
   version: { type: String, required: true },

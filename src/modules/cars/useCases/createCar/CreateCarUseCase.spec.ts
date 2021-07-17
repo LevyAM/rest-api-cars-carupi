@@ -1,9 +1,6 @@
-import { CarsRepository } from "../../infra/repositories/implements/CarRepository";
-
 import { CreateCarUseCase } from "./CreateCarUseCase";
-import { ICarDTO } from "modules/cars/dtos/ICarDTO";
-import { ICarsRepository } from "modules/cars/infra/repositories/ICarRepository";
 import { CarsRepositoryInMemory } from "../../repositories/inmemory/CarsRepositoryInMemory";
+import { v4 as uuid } from "uuid";
 
 let createCarUseCase: CreateCarUseCase;
 let carsRepositoryInMemory: CarsRepositoryInMemory;
@@ -15,7 +12,7 @@ describe("Create Car", () => {
   });
 
   it("should be able to create a new car", async () => {
-    const car = await createCarUseCase.execute({
+    let car = await createCarUseCase.execute({
       brand: "Fiat",
       model: "uno mille",
       version: "Fiat Uno Mille 1.0 Fire duas portas",
@@ -25,18 +22,8 @@ describe("Create Car", () => {
       price: "10000",
     });
 
-    // const carBrand = car.brand;
-
-    console.log(car);
-
-    expect(car).toHaveProperty("brand");
-    expect(car).toHaveProperty("model");
-    expect(car).toHaveProperty("version");
-    expect(car).toHaveProperty("year");
-    expect(car).toHaveProperty("mileage");
-    expect(car).toHaveProperty("transmission");
-    expect(car).toHaveProperty("price");
-    expect(car).toEqual({
+    expect(car).toHaveProperty("car_id");
+    expect(car).toMatchObject({
       brand: "Fiat",
       model: "uno mille",
       version: "Fiat Uno Mille 1.0 Fire duas portas",

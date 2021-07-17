@@ -1,4 +1,5 @@
 interface ICarDTO {
+  car_id?: string;
   brand: string;
   model: string;
   version: string;
