@@ -1,6 +1,5 @@
 import { CreateCarUseCase } from "./CreateCarUseCase";
 import { CarsRepositoryInMemory } from "../../repositories/inmemory/CarsRepositoryInMemory";
-import { v4 as uuid } from "uuid";
 
 let createCarUseCase: CreateCarUseCase;
 let carsRepositoryInMemory: CarsRepositoryInMemory;

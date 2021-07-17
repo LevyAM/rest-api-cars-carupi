@@ -35,5 +35,13 @@ class CarsRepositoryInMemory implements ICarsRepository {
   async list(): Promise<Model<Schema>[] | ICarDTO[]> {
     return this.cars;
   }
+
+  async delete(car_id: string): Promise<Model<Schema>[] | ICarDTO[]> {
+    const deleteCarIndex = this.cars.findIndex((car) => car_id === car_id);
+
+    this.cars.splice(deleteCarIndex, 1);
+
+    return this.cars;
+  }
 }
 export { CarsRepositoryInMemory };

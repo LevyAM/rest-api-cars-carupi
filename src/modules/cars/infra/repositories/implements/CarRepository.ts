@@ -35,6 +35,13 @@ class CarsRepository implements ICarsRepository {
     const cars = await this.repository.find();
     return cars;
   }
+
+  async delete(car_id: string): Promise<Model<Schema>[] | ICarDTO[]> {
+    await this.repository.findOneAndDelete({ car_id: car_id });
+
+    const availableCars = this.list();
+    return availableCars;
+  }
 }
 
 export { CarsRepository };

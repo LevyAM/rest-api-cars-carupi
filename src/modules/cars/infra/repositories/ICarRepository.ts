@@ -13,6 +13,7 @@ interface ICarsRepository {
     price,
   }: ICarDTO): Promise<Model<Schema> | ICarDTO>;
   list(): Promise<Model<Schema>[] | ICarDTO[]>;
+  delete(car_id: string): Promise<Model<Schema>[] | ICarDTO[]>;
 }
 
 export { ICarsRepository };
