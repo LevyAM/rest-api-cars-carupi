@@ -49,7 +49,7 @@
   https://yarnpkg.com/
   ```
 
-- PostgresSQL
+- MongoDB
 
   ```sh
   https://www.mongodb.com/
