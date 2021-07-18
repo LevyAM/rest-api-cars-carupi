@@ -15,7 +15,7 @@ describe("List Cars", () => {
   });
 
   it("should be able to list all cars", async () => {
-    let car1 = await createCarUseCase.execute({
+    const car1 = await createCarUseCase.execute({
       brand: "Fiat",
       model: "uno mille",
       version: "Fiat Uno Mille 1.0 Fire duas portas",
@@ -25,7 +25,7 @@ describe("List Cars", () => {
       price: "10000",
     });
 
-    let car2 = await createCarUseCase.execute({
+    const car2 = await createCarUseCase.execute({
       brand: "Fiat",
       model: "Grazie Mille",
       version: "Fiat Grazie Mille 1.0 Fire quatro portas",
@@ -35,7 +35,7 @@ describe("List Cars", () => {
       price: "26190",
     });
 
-    let cars = await listCarUseCase.execute();
+    const cars = await listCarUseCase.execute();
 
     expect(cars[0]).toMatchObject({
       brand: "Fiat",

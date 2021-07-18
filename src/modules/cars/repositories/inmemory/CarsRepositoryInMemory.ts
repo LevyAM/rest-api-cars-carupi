@@ -1,6 +1,5 @@
-import { model, Schema, Model, Document } from "mongoose";
+import { Schema, Model } from "mongoose";
 import { ICarDTO } from "../../dtos/ICarDTO";
-import { carSchema, carModel } from "../../infra/mongoose/Car";
 import { ICarsRepository } from "../../infra/repositories/ICarRepository";
 import { v4 as uuid } from "uuid";
 class CarsRepositoryInMemory implements ICarsRepository {
@@ -16,7 +15,7 @@ class CarsRepositoryInMemory implements ICarsRepository {
     transmission,
     price,
   }: ICarDTO): Promise<ICarDTO> {
-    let car = Object.assign({
+    const car = Object.assign({
       car_id: uuid(),
       brand,
       model,
@@ -37,9 +36,9 @@ class CarsRepositoryInMemory implements ICarsRepository {
   }
 
   async delete(car_id: string): Promise<Model<Schema>[] | ICarDTO[]> {
-    const deleteCarIndex = this.cars.findIndex((car) => car_id === car_id);
+    const deletedCarIndex = this.cars.findIndex((car) => car_id == car_id);
 
-    this.cars.splice(deleteCarIndex, 1);
+    this.cars.splice(deletedCarIndex, 1);
 
     return this.cars;
   }

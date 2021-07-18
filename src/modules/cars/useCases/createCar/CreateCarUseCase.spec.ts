@@ -11,7 +11,7 @@ describe("Create Car", () => {
   });
 
   it("should be able to create a new car", async () => {
-    let car = await createCarUseCase.execute({
+    const car = await createCarUseCase.execute({
       brand: "Fiat",
       model: "uno mille",
       version: "Fiat Uno Mille 1.0 Fire duas portas",
